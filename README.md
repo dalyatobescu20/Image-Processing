@@ -1,7 +1,7 @@
 In utils.c:
-Task1;
+Task1
 ->pentru functia edit:
-- am citit fisierul path si am citit structurile din bmp_header(cu fread);
+-am citit fisierul path si am citit structurile din bmp_header(cu fread);
 -Map reprezinta matricea pixelilor(am alocat-o dinamic, sper ca si ok);
 -Pt Padding am luat formula de pe stackoverflow scz.
 -Si in final am citit si matricea.
