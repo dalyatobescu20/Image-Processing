@@ -1,37 +1,24 @@
 In utils.c:
-Task1
-->pentru functia edit:
--am citit fisierul path si am citit structurile din bmp_header(cu fread);
--Map reprezinta matricea pixelilor(am alocat-o dinamic, sper ca si ok);
--Pt Padding am luat formula de pe stackoverflow scz.
--Si in final am citit si matricea.
 
--->pentru functia save:
-Totul este similar ca la edit doar ca acum scriu in loc sa citesc
--outputfile-->fisierul unde o sa apara output-ul meu
--am scris structurile din bmp_header(Cu fwrite);
--am scris matricea pixelilor
+--> for the edit function: 
+    - I read the path file and read the structures from bmp_header (with fread); 
+    -Map represents the matrix of pixels; 
+    -For Padding I took the formula from stackoverflow 
+    -And finally I read the matrix.
 
--->pentru functia free_quit(un nume foarte sugestiv)
--nu prea am ce explica aici, am eliberat memoria pt map cu free.
+-->for the save function: Everything is similar to the edit except that now I write instead of reading 
+  -outputfile-->the file where my output will appear
+  -I wrote the structures from bmp_header (With fwrite);
+  -I wrote the pixel matrix
 
-Task2;
--am apelat functia edit
--si aici practic m am folosit de o alta matrice mai micuta ca cea principala
-care s ar suprapune peste cea mare, de aceea i si j iau valori< height-x
-respectiv width-y;
+-->for the free_quit function (a very suggestive name) 
+  - I don't really have anything to explain here, I freed the memory for the map with free.
 
-Task 4:
--color - este culoarea pixelului intial setat prin comanda set_draw;
--curr - este culoarea curenta (pixelii de la pozitia x, y);
--daca toti vecinii pixelului sunt egali functia fill e apelata,
-(vecinii adica x-1, x+1, y-1, y+1);
+-->color - is the color of the initial pixel set by the set_draw command; 
+-->curr - is the current color (pixels from position x, y); 
+- if all the neighbors of the pixel are equal, the fill function is called, (ie neighbors x-1, x+1, y-1, y+1);
 
+In bmp_header: - I have put the data for bmp_fileheader and bmp_infoheader; 
+               -I added a structure for RGB
 
-In bmp_header:
--am pus strucurile date pt bmp_fileheader si bmp_infoheader;
--am mai adaugat un struct pt RGB 
-
-In main.c:
--am apelat functiile si in functie de ce ce comanda citesc de la tastatura,
-executa functiile.
+In main.c: - I called the functions and depending on what command I read from the keyboard, it executes the functions.
