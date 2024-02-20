@@ -1,24 +1,44 @@
-In utils.c:
+## Edit Function:
 
---> for the edit function: 
-    - I read the path file and read the structures from bmp_header (with fread); 
-    -Map represents the matrix of pixels; 
-    -For Padding I took the formula from stackoverflow 
-    -And finally I read the matrix.
+The edit function in utils.c facilitates the modification of bitmap (BMP) files. Here's a step-by-step explanation of its operations:
 
--->for the save function: Everything is similar to the edit except that now I write instead of reading 
-  -outputfile-->the file where my output will appear
-  -I wrote the structures from bmp_header (With fwrite);
-  -I wrote the pixel matrix
+--> It opens the specified file path and reads the bmp_fileheader and bmp_infoheader structures using fread.
 
--->for the free_quit function (a very suggestive name) 
-  - I don't really have anything to explain here, I freed the memory for the map with free.
+--> Memory is allocated for the pixel map based on the height and width of the BMP file.
 
--->color - is the color of the initial pixel set by the set_draw command; 
--->curr - is the current color (pixels from position x, y); 
-- if all the neighbors of the pixel are equal, the fill function is called, (ie neighbors x-1, x+1, y-1, y+1);
+--> The function calculates padding bytes required for proper alignment of pixel data.
 
-In bmp_header: - I have put the data for bmp_fileheader and bmp_infoheader; 
-               -I added a structure for RGB
+--> It reads the pixel data from the file into the allocated memory.
 
-In main.c: - I called the functions and depending on what command I read from the keyboard, it executes the functions.
+## Save Function:
+
+The save function in utils.c is responsible for saving modifications made to a BMP file. Here's how it operates:
+
+--> It writes the bmp_fileheader and bmp_infoheader structures to the output file using fwrite.
+
+--> Pixel data from the modified pixel map is written to the output file, along with any necessary padding bytes for alignment.
+
+## Free_Quit Function:
+
+The free_quit function in utils.c handles memory deallocation and program termination. Here's what it does:
+It frees the memory allocated for the pixel map, ensuring proper cleanup before program exit.
+
+## Insert_Image Function:
+
+The insert_image function inserts an image into the specified coordinates within the pixel map, allowing for seamless integration of additional content into the BMP file.
+
+## Fill Function:
+
+The fill function recursively fills neighboring pixels with a specified color, starting from a given coordinate. This operation is useful for various image manipulation tasks, such as flood filling areas with a specific color.
+## Additional Definitions:
+Color: Represents the color of the initial pixel set by the set command.
+
+Color2: Represents the color of the current pixel being processed during the fill operation.
+
+## BMP_Header:
+
+Defines structures for the bmp_fileheader, bmp_infoheader, and RGB color components, necessary for handling BMP file data.
+## main.c:
+
+In main.c, the functions defined in utils.c are called based on commands entered via keyboard input.
+The program executes the corresponding function depending on the command provided, allowing users to edit, save, insert images, set colors, fill areas, or quit the program gracefully.
